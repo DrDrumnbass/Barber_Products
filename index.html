@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="css/fonts.css">
+        <meta charset="utf-8">
+        <title>Barber Products</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="js/accordion.js"></script>
+    </head>
+    <body class="page-layout">
+        <header class="page-layout__header">
+            <ul class="header__menu">
+                <li class="menu__item">
+                    <a class="item__link" href="index.html"><img class="link__logo" src="images/icons/logo.svg" alt="site logotype"></a>
+                </li>
+                <ul class="header__menu header__menu_next">
+                    <li class="menu__item">
+                        <button class="item__btn"><img class="btn__icon" src="images/icons/search.svg" alt="search icon"></button>
+                    </li>
+                    <li class="menu__item">
+                        <button class="item__btn"><img class="btn__icon" src="images/icons/account.svg" alt="account icon"></button>
+                    </li>
+                    <li class="menu__item">
+                        <button class="item__btn"><img class="btn__icon" src="images/icons/cart.svg" alt="cart icon"></button>
+                    </li>
+                    <li class="menu__item">
+                        <button class="item__btn"><img class="btn__icon" src="images/icons/menu.svg" alt="menu icon"></button>
+                    </li>
+                </ul>
+            </ul>
+        </header>
+        <main class="page-layout__main">
+            <div class="main__slider">
+                <div id="slider" class="slider__items">
+                    <img id="slide" class="items__item" src="images/banner/banner.png" draggable="false">
+                    <img id="slide" class="items__item" src="images/banner/banner_2.png" draggable="false">
+                    <img id="slide" class="items__item" src="images/banner/banner_3.png" draggable="false">
+                </div>
+                <div id="buttons" class="slider__buttons">
+                    <div id="btn" class="buttons__btn buttons__btn_active"></div>
+                    <div id="btn" class="buttons__btn"></div>
+                    <div id="btn" class="buttons__btn"></div>
+                </div>
+            </div>
+            <div class="main__row">
+                <div id="app" class="row__goods">
+                    <h1>Сейчас популярно</h1>
+                    <div class="goods__container">
+                        <div class="container__item" v-for="item in items" :key="item.id">
+                            <div class="item__discount">-35%</div>
+                            <img class="item__picture" :src="item.image" :alt="item.name">
+                            <div class="item__text">
+                                <p class="text__title">{{ item.name }}</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">{{ item.price }} &#8381</p>
+                                    <p class="cost_after">12 500 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <div class="item__discount">-34%</div>
+                            <img class="item__picture" src="images/goods/image_2.png" alt="Wahl Magic Clip Cordless & BaBylissPRO GoldFX Trimmer with Andis Cool Care">
+                            <div class="item__text">
+                                <p class="text__title">Wahl Magic Clip Cordless & BaBylissPRO GoldFX Trimmer with Andis Cool Care</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">14 500 &#8381</p>
+                                    <p class="cost_after">22 000 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <div class="item__discount">-35%</div>
+                            <img class="item__picture" src="images/goods/image_3.png" alt="Andis Master Cordless Clipper & T-Outliner Li Trimmer with Cool Care Plus">
+                            <div class="item__text">
+                                <p class="text__title">Andis Master Cordless Clipper & T-Outliner Li Trimmer with Cool Care Plus</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">24 500 &#8381</p>
+                                    <p class="cost_after">38 000 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <div class="item__discount">-28%</div>
+                            <img class="item__picture" src="images/goods/image_4.png" alt="Andis Cool Care Plus 5 in 1 Spray - 12 PACK">
+                            <div class="item__text">
+                                <p class="text__title">Andis Cool Care Plus 5 in 1 Spray - 12 PACK</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">6 200 &#8381</p>
+                                    <p class="cost_after">8 700 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <div class="item__discount">-11%</div>
+                            <img class="item__picture" src="images/goods/image_5.png" alt="Andis Cordless T-Outliner Li Trimmer">
+                            <div class="item__text">
+                                <p class="text__title">Andis Cordless T-Outliner Li Trimmer</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">15 000 &#8381</p>
+                                    <p class="cost_after">16 600 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture" src="images/goods/image_6.png" alt="Andis Master Cordless Clipper & T-Outliner Li Trimmer with Cool Care Plus">
+                            <div class="item__text">
+                                <p class="text__title">Wahl 5 Star Cordless Magic Clip</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">10 500 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h1>Наборы материалов</h1>
+                    <p>Комбинации машинок и триммеров для ваших парикмахерских</p>
+                    <div class="goods__container">
+                        <div class="container__item">
+                            <div class="item__discount">-20%</div>
+                            <img class="item__picture" src="images/goods/image_7.png" alt="Wahl Magic Clip Cordless & Premium Cutting Guide Combs with Organizer">
+                            <div class="item__text">
+                                <p class="text__title">Wahl Magic Clip Cordless & Premium Cutting Guide Combs with Organizer</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">8 400 &#8381</p>
+                                    <p class="cost_after">10 500 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <div class="item__discount">-34%</div>
+                            <img class="item__picture" src="images/goods/image_8.png" alt="BaBylissPRO GoldFX Clipper - Outlining Trimmer & Double Foil Shaver Combo">
+                            <div class="item__text">
+                                <p class="text__title">BaBylissPRO GoldFX Clipper - Outlining Trimmer & Double Foil Shaver Combo</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">24 500 &#8381</p>
+                                    <p class="cost_after">31 490 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <div class="item__discount">-7%</div>
+                            <img class="item__picture" src="images/goods/image_9.png" alt="BaBylissPRO Boost FX Limited Edition Black Clipper, Trimmer & Charging Bases">
+                            <div class="item__text">
+                                <p class="text__title">BaBylissPRO Boost FX Limited Edition Black Clipper, Trimmer & Charging Bases</p>
+                                <div class="text__cost">
+                                    <p class="cost_before">23 300 &#8381</p>
+                                    <p class="cost_after">27 500 &#8381</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="goods__btn">Смотреть все</button>
+                    <h1>Категории</h1>
+                    <div class="goods__container goods__container_categories">
+                        <div class="container__item container__item_category">
+                            <img class="item__icon" src="images/icons/comb.svg" alt="Расчески">
+                            <div class="item__text item__text_isCategory">
+                                <p class="text__title text__title_bold">Расчески</p>
+                                <p class="text__amount">100 штук</p>
+                            </div>
+                        </div>
+                        <div class="container__item container__item_category">
+                            <img class="item__icon" src="images/icons/razor.svg" alt="Лезвия бритвы">
+                            <div class="item__text item__text_isCategory">
+                                <p class="text__title text__title_bold">Лезвия бритвы</p>
+                                <p class="text__amount">100 штук</p>
+                            </div>
+                        </div>
+                        <div class="container__item container__item_category">
+                            <img class="item__icon" src="images/icons/shampoo.svg" alt="Гели для бритья">
+                            <div class="item__text item__text_isCategory">
+                                <p class="text__title text__title_bold">Гели для бритья</p>
+                                <p class="text__amount">100 штук</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods__container goods__container_categories">
+                        <div class="container__item container__item_category">
+                            <img class="item__icon" src="images/icons/trimmer.svg" alt="Триммер">
+                            <div class="item__text item__text_isCategory">
+                                <p class="text__title text__title_bold">Триммер</p>
+                                <p class="text__amount">100 штук</p>
+                            </div>
+                        </div>
+                        <div class="container__item container__item_category">
+                            <img class="item__icon" src="images/icons/straight-razor.svg" alt="Бритвы">
+                            <div class="item__text item__text_isCategory">
+                                <p class="text__title text__title_bold">Бритвы</p>
+                                <p class="text__amount">100 штук</p>
+                            </div>
+                        </div>
+                        <div class="container__item container__item_category">
+                            <img class="item__icon" src="images/icons/hair-iron.svg" alt="Выпрямители">
+                            <div class="item__text item__text_isCategory">
+                                <p class="text__title text__title_bold">Выпрямители</p>
+                                <p class="text__amount">100 штук</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row__line"></div>
+                <div class="row__news">
+                    <div class="news__title">
+                        <h1>Последние новости</h1>
+                        <a class="title__btn" href="#">Смотреть все</a>
+                    </div>
+                    <div class="news__container">
+                        <div class="container__item">
+                            <img class="item__picture" src="images/news/news_1.png" alt="Slick Gorilla - король коллабораций">
+                            <div class="item__text">
+                                 <p class="item__title">Slick Gorilla - король коллабораций</p>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture" src="images/news/news_2.png" alt="Внимание к бренду: Clubman Pinaud">
+                            <div class="item__text">
+                                 <p class="item__title">Внимание к бренду: Clubman Pinaud</p>
+                            </div>
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture" src="images/news/news_3.png" alt="Лучшие способы ухода за бородой">
+                            <div class="item__text">
+                                 <p class="item__title">Лучшие способы ухода за бородой</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="accordion" class="row__accordion">
+                    <div class="accordion__item">
+                        <div class="accordion__header">Являются ли товары подлинными?</div>
+                        <div class="accordion__body">
+                            <div class="accordion__content">
+                                Да, вся товарная продукция Barber Products является подлинной и имеет все необходимые сертификаты подлинности и качества.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="accordion__header">Сколько стоит доставка?</div>
+                        <div class="accordion__body">
+                            <div class="accordion__content">
+                                Доставка расчитывается в корзине, которая зависит от расстояния между ближайшим складом и вашим пунктом выдачи. При заказе от 3000 рублей доставка по России бесплатная.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="accordion__header">На все ли товары предоставляется гарантия?</div>
+                        <div class="accordion__body">
+                            <div class="accordion__content">
+                                Гарантия предоставляется на все товары магазина Barber Products.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion__item">
+                        <div class="accordion__header">Когда прибудут мои товары?</div>
+                        <div class="accordion__body">
+                            <div class="accordion__content">
+                                Чтобы узнать, когда прибудет заказ, перейдите в личный кабинет, в раздел доставки. Также при поступдении заказа в пункт выдачи вам поступит сообщение на телефон.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row__pluses">
+                    <div class="pluses__container">
+                        <div class="container__item container__item_mini">
+                            <img class="item__picture item__picture_mini" src="images/icons/shipping.svg">
+                            <div class="item__text item__text_centered">
+                                <p class="text__title text__title_big">Бесплатная доставка</p>
+                                <p class="text__description">При заказе от 3 000 рублей</p>
+                            </div>
+                        </div>
+                        <div class="container__item container__item_mini">
+                            <img class="item__picture item__picture_mini" src="images/icons/headset.svg">
+                            <div class="item__text item__text_centered">
+                                <p class="text__title text__title_big">Хорошая поддержка</p>
+                                <p class="text__description">Для нас важен клиент</p>
+                            </div>
+                        </div>
+                        <div class="container__item container__item_mini">
+                            <img class="item__picture item__picture_mini" src="images/icons/rouble.svg">
+                            <div class="item__text item__text_centered">
+                                <p class="text__title text__title_big">Экономия денег</p>
+                                <p class="text__description">Доступные цены на все</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row__partners">
+                    <div class="partners__container">
+                        <div class="container__item">
+                            <img class="item__picture item__picture_medium" src="images/icons/Clubman-Pinaud.svg">
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture item__picture_medium" src="images/icons/mp.svg">
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture item__picture_medium" src="images/icons/johnny.svg">
+                        </div>
+                    </div>
+                    <div class="partners__container">
+                        <div class="container__item">
+                            <img class="item__picture item__picture_medium" src="images/icons/andis.svg">
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture item__picture_medium" src="images/icons/reuzel.svg">
+                        </div>
+                        <div class="container__item">
+                            <img class="item__picture item__picture_medium" src="images/icons/scurl.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="page-layout__footer">
+            <div class="footer__container">
+                <ul class="container__menu">
+                    <li class="menu__item"><a class="item__link" href="">О НАС</a></li>
+                    <li class="menu__item"><a class="item__link" href="">АККАУНТ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">СОБЫТИЯ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">ПОЛИТИКА</a></li>
+                </ul>
+                <ul class="container__menu">
+                    <li class="menu__item"><a class="item__link" href="">КАТЕГОРИИ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">ДОСТАВКА</a></li>
+                    <li class="menu__item"><a class="item__link" href="">ВОЗВРАТ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">КОНТАКТЫ</a></li>
+                </ul>
+                <ul class="container__menu">
+                    <li class="menu__item"><a class="item__link" href="">НОВИНКИ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">БРЕНДЫ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">ОСОБОЕ</a></li>
+                    <li class="menu__item"><a class="item__link" href="">ЛИЦЕНЗИИ</a></li>
+                </ul>
+            </div>
+            <div class="footer__container">
+                <div class="container__content">
+                    <p class="content__title">ПОДПИШИТЕСЬ НА НАС</p>
+                    <ul class="content__social">
+                        <li class="social__item">
+                            <a class="item__link" href=""><img class="link__icon" src="images/icons/youtube-icon.svg" alt="youtube icon"></a>
+                        </li>
+                        <li class="social__item">
+                            <a class="item__link" href=""><img class="link__icon" src="images/icons/instagram-icon.svg" alt="instagram icon"></a>
+                        </li>
+                        <li class="social__item">
+                            <a class="item__link" href=""><img class="link__icon" src="images/icons/facebook-icon.svg" alt="facebook icon"></a>
+                        </li>
+                        <li class="social__item">
+                            <a class="item__link" href=""><img class="link__icon" src="images/icons/twitter-icon.svg" alt="twitter icon"></a>
+                        </li>
+                        <li class="social__item">
+                            <a class="item__link" href=""><img class="link__icon" src="images/icons/vk-icon.svg" alt="vk icon"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container__content">
+                    <p class="content__title">НОВОСТНАЯ РАССЫЛКА</p>
+                    <div class="content__form">
+                        <input class="form__spamming-input" type="email" placeholder="Адрес электронной почты">
+                        <button class="form__submit"><img src="images/icons/send.svg"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__line"></div>
+            <div class="footer__container">
+                <p>2023, Barber Products. Все права защищены</p>
+            </div>
+        </footer>
+        <script src="js/goods.js"></script>
+        <script>
+            new Accordion('#accordion', {
+                alwaysOpen: true
+            });
+        </script>
+        <script src="js/goods.js"></script>
+    </body>
+</html>
