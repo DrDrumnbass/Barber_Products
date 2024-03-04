@@ -1,0 +1,152 @@
+h1, h2 {
+    margin: 0;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.page-layout {
+    margin: 0;
+    font-family: 'Murecho', sans-serif;
+}
+
+.page-layout__header {
+    background-color: #000;
+    padding: 20px 40px;
+}
+
+.header__menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header__menu_next {
+    column-gap: 30px;
+}
+
+.item__link {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.link__logo {
+    height: 50px;
+}
+
+.menu__item_group {
+    display: flex; 
+}
+
+.item__btn {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.btn__icon {
+    height: 25px;
+}
+
+.menu__item:last-of-type .item__btn .btn__icon {
+    height: 20px;
+}
+
+.page-layout__footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 40px 0 40px;
+    font-weight: bold;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer__container:last-of-type {
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0;
+    font-weight: 500;
+}
+
+.footer__line {
+    border: 1px #fff solid;
+    position: absolute;
+    width: -webkit-fill-available;
+    left: 0;
+}
+
+.container__menu {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-gap: 30px;
+}
+
+.container__content {
+    width: 100%;
+}
+
+.content__title {
+    margin-bottom: 20px;
+}
+
+.content__social {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.social__item {
+    height: 45px;
+}
+
+.item__link {
+    height: 100%;
+}
+
+.link__icon {
+    height: 100%;
+}
+
+.content__form {
+    display: flex;
+}
+
+.form__spamming-input {
+    width: 100%;
+    padding: 12px 20px;
+    font-family: "Murecho", sans-serif;
+    font-size: 18px;
+    box-sizing: border-box;
+    border-radius: 0;
+    border: none;
+}
+
+.form__spamming-input:focus-visible {
+    outline: none;
+    background-color: #e1e1e1;
+}
+
+.form__submit {
+    background-color: #fff;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
